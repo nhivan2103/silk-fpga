@@ -1,0 +1,26 @@
+# Quartus Prime Project outputs
+db/
+incremental_db/
+output_files/
+simulation/
+*.jdi
+*.sof
+*.pof
+*.rpt
+*.summary
+
+# Xilinx Vivado outputs
+.Xil/
+*.jou
+*.log
+*.pb
+*.dir
+xsim.dir/
+*.vdi
+*.opj
+
+# Simulation tools (ModelSim/Questa/Verilator)
+*.wlf
+*.vcd
+work/
+transcript
