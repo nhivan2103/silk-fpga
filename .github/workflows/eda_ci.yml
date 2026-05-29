@@ -17,13 +17,11 @@ jobs:
       - name: Run Verilator Lint
         run: |
           echo "=== Running Verilator Lint Check ==="
-          # Tìm các file .v/.sv trong contributions để check lỗi cú pháp và linting
-          # Tạm thời bỏ qua nếu chưa có file nào để tránh gãy pipeline (-Wno-fatal)
           find . -name "*.v" -o -name "*.sv" | xargs -I {} verilator --lint-only -Wall -Wno-fatal {}
 
   yosys_synthesis:
     runs-on: ubuntu-latest
-    container: ghcr.io/yosyshq/oss-cad-suite:latest
+    container: hdl/yosys:latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -31,12 +29,11 @@ jobs:
       - name: Run Yosys Synthesis Check
         run: |
           echo "=== Running Yosys Synthesis ==="
-          # Tạo script động check nhanh khả năng tổng hợp mạch logic
           echo "hierarchy -check" > yosys_check.ys
           
-          # Chỉ chạy yosys nếu tìm thấy file RTL để tránh crash pipeline trống
-          if [ \$(find . -name "*.v" -o -name "*.sv" | wc -l) -gt 0 ]; then
+          if [ $(find . -name "*.v" -o -name "*.sv" | wc -l) -gt 0 ]; then
             find . -name "*.v" -o -name "*.sv" | xargs -I {} echo "read_verilog -sv {}" >> yosys_check.ys
+            echo "proc" >> yosys_check.ys
             yosys -s yosys_check.ys
           else
             echo "No RTL files found to synthesize yet."
