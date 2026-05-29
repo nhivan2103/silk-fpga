@@ -1,4 +1,4 @@
-name: SILK EDA
+name: SILK EDA - General Check
 
 on:
   push:
@@ -48,7 +48,7 @@ jobs:
           # 5. Ép GitHub báo Xanh (Pass) hay Đỏ (Fail) dựa vào đúng mã lỗi ở bước 3
           exit $EXIT_CODE
 
-      - name: Tự động lưu kết quả lên Repository
+      - name: Tự động lưu kết quả
         uses: stefanzweifel/git-auto-commit-action@v5
         # Lệnh if: always() đảm bảo vẫn push kết quả lên kể cả khi Verilator báo lỗi
         if: always()
@@ -62,10 +62,10 @@ jobs:
           REPO_URL="https://raw.githubusercontent.com/${{ github.repository }}/${{ github.ref_name }}"
           cd generic
           
-          echo "# 📊 Báo Cáo Phân Tích SILK EDA" >> $GITHUB_STEP_SUMMARY
+          echo "# Báo Cáo Phân Tích " >> $GITHUB_STEP_SUMMARY
           
           # --- HIỂN THỊ TRỰC TIẾP LOG RA SUMMARY ---
-          echo "## 💻 Nhật ký thực thi (Logs)" >> $GITHUB_STEP_SUMMARY
+          echo "## Nhật ký thực thi (Logs)" >> $GITHUB_STEP_SUMMARY
           echo '```text' >> $GITHUB_STEP_SUMMARY
           if [ -f ".results/eda_log.txt" ]; then
             cat .results/eda_log.txt >> $GITHUB_STEP_SUMMARY
