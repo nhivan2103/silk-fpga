@@ -25,7 +25,7 @@ Bên trong `remote_lab` đã được chuẩn bị sẵn các thư mục mẫu (
 
 Hệ thống nhận diện chế độ làm việc của bạn thông qua một tệp cấu hình bắt buộc tên là `mode.txt` nằm trong thư mục dự án của bạn. File này chỉ chứa duy nhất một từ khóa viết hoa tương ứng với 1 trong 5 chế độ:
 
-| Chế độ (Ghi trong MODE.txt) | Mô tả chức năng phần cứng |
+| Chế độ (Ghi trong mode.txt) | Mô tả chức năng phần cứng |
 | :--- | :--- |
 | **`NONE`** | *(Chế độ mặc định)* Dành cho các bài mạch số cơ bản (Cổng logic, Counter, FSM thuần túy) không dùng ngoại vi đặc biệt. |
 | **`HEX`** | Kết nối đầu ra của mạch với hệ thống LED 7 đoạn (7-segment display) trên board ảo. |
