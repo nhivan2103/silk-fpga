@@ -11,18 +11,18 @@
     1 | module systolic2x2(
       |        ^~~~~~~~~~~
                                       : ... Top module 'array_mul_top'
-    1 | module array_mul_top #(
+    1 | module array_mul_top (
       |        ^~~~~~~~~~~~~
                                       : ... Top module 'spm'
     1 | module spm(clk, rst, x, y, p);
       |        ^~~
-%Warning-GENUNNAMED: rtl/array_mul.v:94:26: Unnamed generate block 'genblk1' (IEEE 1800-2017 27.6)
+%Warning-GENUNNAMED: rtl/array_mul.v:92:26: Unnamed generate block 'genblk1' (IEEE 1800-2017 27.6)
                                           : ... Suggest assign a label with 'begin : gen_<label_name>'
-   94 |         assign c4in[l+1] = c4out[l];
+   92 |         assign c4in[l+1] = c4out[l];
       |                          ^
-%Error-PINNOTFOUND: rtl/array_mul.v:28:17: Parameter not found: '__paramNumber1'
-   28 |     array_mul #(size) core_inst (
-      |                 ^~~~
+%Error: rtl/array_mul.v:4:18: Can't find definition of variable: 'size'
+    4 |     input  wire [size-1:0]      a_in,     
+      |                  ^~~~
 %Error: Exiting due to 1 error(s), 2 warning(s)
 ❌ LỖI: Có lỗi rồi!
 Hãy đọc kỹ log cảnh báo (Error/Warning) ở trên, sửa lỗi và push lại.
